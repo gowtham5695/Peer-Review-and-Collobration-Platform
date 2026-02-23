@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+
+  /* 🔥 Cool gradient background */
+  background: linear-gradient(
+    135deg,
+    #667eea,
+    #764ba2,
+    #6b8dd6
+  );
+
+  background-size: 300% 300%;
+  animation: gradientMove 12s ease infinite;
+}
+
+/* Smooth gradient animation */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

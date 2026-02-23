@@ -1,0 +1,97 @@
+/* Wrapper */
+.dashboard-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Glass Card */
+.dashboard-box {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  padding: 60px;
+  width: 550px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  color: white;
+  transition: 0.3s;
+}
+
+.dashboard-box:hover {
+  transform: translateY(-5px);
+}
+
+/* Title */
+.dashboard-box h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Description */
+.dashboard-box p {
+  font-size: 16px;
+  margin-bottom: 35px;
+  color: #f1f1f1;
+  line-height: 1.6;
+}
+
+/* Button */
+.dashboard-box button {
+  padding: 14px 35px;
+  font-size: 16px;
+  background: white;
+  color: #764ba2;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.dashboard-box button:hover {
+  transform: scale(1.08);
+  background: #f2f2f2;
+}
+.dashboard {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.dashboard ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dashboard li {
+  margin: 10px 0;
+}
+.dashboard-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+}
+
+.dashboard-card {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 40px;
+  border-radius: 20px;
+  width: 400px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.dashboard-card button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  background: white;
+  color: #6a11cb;
+  font-weight: bold;
+  cursor: pointer;
+}

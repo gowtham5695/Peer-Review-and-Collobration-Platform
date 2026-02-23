@@ -1,0 +1,144 @@
+/* Wrapper */
+.auth-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Glass Card */
+.auth-box {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  padding: 50px;
+  width: 420px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  color: white;
+  transition: 0.3s;
+}
+
+.auth-box:hover {
+  transform: translateY(-5px);
+}
+
+/* Heading */
+.auth-box h2 {
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Inputs */
+.auth-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Button */
+.auth-box button {
+  width: 100%;
+  padding: 12px;
+  background: white;
+  color: #764ba2;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.auth-box button:hover {
+  transform: scale(1.05);
+  background: #f2f2f2;
+}
+
+/* Link text */
+.auth-box p {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.auth-box span {
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #ffffff;
+}
+.dashboard {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.dashboard ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dashboard li {
+  margin: 10px 0;
+}
+/* Full page gradient background */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  height: 100vh;
+}
+
+/* Center container */
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Card style */
+.auth-card {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 40px;
+  border-radius: 20px;
+  width: 350px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  color: white;
+}
+
+/* Inputs */
+.auth-card input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+/* Button */
+.auth-card button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: white;
+  color: #6a11cb;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.auth-card button:hover {
+  opacity: 0.9;
+}
+
+.auth-card p {
+  margin-top: 15px;
+}
