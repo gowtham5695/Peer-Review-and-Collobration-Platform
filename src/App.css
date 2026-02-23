@@ -36,3 +36,49 @@
     transform: rotate(360deg);
   }
 }
+/* ============================= */
+/* Landing Page Center */
+/* ============================= */
+
+body, #root {
+  margin: 0;
+  height: 100vh;
+}
+
+.center-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #5f2c82, #49a09d);
+  text-align: center;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.center-page h1 {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.center-page p {
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+.center-page button {
+  padding: 12px 28px;
+  border-radius: 8px;
+  border: none;
+  background-color: #2563eb;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.center-page button:hover {
+  background-color: #1d4ed8;
+}

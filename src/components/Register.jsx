@@ -1,95 +1,112 @@
-import { Link, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
-import { useState } from "react";
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import "../Auth.css";
-
+import "../styles/theme.css"
 function Register() {
   const navigate = useNavigate();
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    role: "student",
+  });
 
-  const handleRegister = (e) => {
-    e.preventDefault();
-
-    // Check if passwords match
-    if (password !== confirmPassword) {
-      Swal.fire({
-        title: "Error!",
-        text: "Passwords do not match!",
-        icon: "error",
-        confirmButtonColor: "#6a11cb",
-      });
-      return;
-    }
-
-    const user = {
-      name,
-      email,
-      password,
-    };
-
-    // Save user to localStorage
-    localStorage.setItem("user", JSON.stringify(user));
-
-    Swal.fire({
-      title: "Registered!",
-      text: "Account created successfully!",
-      icon: "success",
-      confirmButtonColor: "#6a11cb",
-    }).then(() => {
-      navigate("/login");
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
     });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // Check if email already exists
+    const userExists = users.find(
+      (user) => user.email === formData.email
+    );
+
+    if (userExists) {
+      alert("Account already exists!");
+      return;
+    }
+
+    // Check password match
+    if (formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+
+    const newUser = {
+      name: formData.name,
+      email: formData.email,
+      password: formData.password,
+      role: formData.role,
+    };
+
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("Registered Successfully!");
+    navigate("/login");
+  };
+
   return (
-    <div className="auth-wrapper">
-      <div className="auth-card">
+    <div className="auth-container">
+      <div className="auth-box">
         <h2>Register</h2>
 
-        <form onSubmit={handleRegister}>
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="Full Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            name="name"
+            placeholder="Enter Name"
+            onChange={handleChange}
             required
           />
 
           <input
             type="email"
-            placeholder="Gmail"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            name="email"
+            placeholder="Enter Email"
+            onChange={handleChange}
             required
           />
 
           <input
             type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            name="password"
+            placeholder="Enter Password"
+            onChange={handleChange}
             required
           />
 
           <input
             type="password"
+            name="confirmPassword"
             placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            onChange={handleChange}
             required
           />
+
+          <select
+            name="role"
+            value={formData.role}
+            onChange={handleChange}
+          >
+            <option value="student">Student</option>
+            <option value="admin">Admin</option>
+          </select>
 
           <button type="submit">Register</button>
         </form>
 
         <p>
-          Already have an account?{" "}
-          <Link to="/login" style={{ color: "white", fontWeight: "bold" }}>
-            Login
-          </Link>
+          Already have an account? <Link to="/login">Login</Link>
         </p>
       </div>
     </div>

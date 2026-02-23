@@ -1,59 +1,66 @@
-import { Link, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
-import { useState } from "react";
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import "../Auth.css";
-
+import "../styles/theme.css"
 function Login() {
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
 
-    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    if (
-      storedUser &&
-      email === storedUser.email &&
-      password === storedUser.password
-    ) {
-      Swal.fire({
-        title: "Success!",
-        text: "Logged in Successfully!",
-        icon: "success",
-        confirmButtonColor: "#6a11cb",
-      }).then(() => {
-        navigate("/");
-      });
+    const user = users.find(
+      (u) =>
+        u.email === formData.email &&
+        u.password === formData.password
+    );
+
+    if (!user) {
+      alert("Invalid Email or Password!");
+      return;
+    }
+
+    localStorage.setItem("currentUser", JSON.stringify(user));
+
+    if (user.role === "admin") {
+      navigate("/admin-dashboard");
     } else {
-      Swal.fire({
-        title: "Error!",
-        text: "Invalid Email or Password!",
-        icon: "error",
-        confirmButtonColor: "#6a11cb",
-      });
+      navigate("/student-dashboard");
     }
   };
 
   return (
-    <div className="auth-wrapper">
-      <div className="auth-card">
+    <div className="auth-container">
+      <div className="auth-box">
         <h2>Login</h2>
 
         <form onSubmit={handleLogin}>
           <input
             type="email"
-            placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
+            name="email"
+            placeholder="Enter Email"
+            onChange={handleChange}
             required
           />
 
           <input
             type="password"
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
+            name="password"
+            placeholder="Enter Password"
+            onChange={handleChange}
             required
           />
 
@@ -61,10 +68,7 @@ function Login() {
         </form>
 
         <p>
-          Don't have an account?{" "}
-          <Link to="/register" style={{ color: "white", fontWeight: "bold" }}>
-            Register
-          </Link>
+          Don't have an account? <Link to="/register">Register</Link>
         </p>
       </div>
     </div>
