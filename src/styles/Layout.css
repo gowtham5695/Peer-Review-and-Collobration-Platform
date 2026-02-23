@@ -1,0 +1,27 @@
+.dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: var(--primary);
+  color: white;
+  padding: 20px;
+}
+
+.sidebar h3 {
+  margin-bottom: 20px;
+}
+
+.sidebar a {
+  display: block;
+  margin-bottom: 15px;
+  color: white;
+  text-decoration: none;
+}
+
+.content {
+  flex: 1;
+  padding: 30px;
+}

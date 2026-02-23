@@ -1,97 +1,315 @@
-/* Wrapper */
-.dashboard-wrapper {
-  height: 100vh;
+/* ============================= */
+/* Layout */
+/* ============================= */
+
+.dashboard-container {
   display: flex;
-  justify-content: center;
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6f9;
+}
+
+/* ============================= */
+/* Sidebar */
+/* ============================= */
+
+.sidebar {
+  width: 260px;
+  background: linear-gradient(180deg, #1e3c72, #2a5298);
+  color: white;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
-/* Glass Card */
-.dashboard-box {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(15px);
-  padding: 60px;
-  width: 550px;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
-  color: white;
-  transition: 0.3s;
-}
-
-.dashboard-box:hover {
-  transform: translateY(-5px);
-}
-
-/* Title */
-.dashboard-box h1 {
-  font-size: 28px;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-
-/* Description */
-.dashboard-box p {
-  font-size: 16px;
+/* Sidebar Title */
+.sidebar h2 {
   margin-bottom: 35px;
-  color: #f1f1f1;
-  line-height: 1.6;
+  text-align: center;
 }
 
-/* Button */
-.dashboard-box button {
-  padding: 14px 35px;
-  font-size: 16px;
-  background: white;
-  color: #764ba2;
+/* Sidebar Buttons */
+.sidebar button {
+  width: 90%;
+  padding: 14px 0;
+  margin-bottom: 18px;
+  border: none;
+  border-radius: 12px;
+  background-color: #f1f1f1;
+  color: #1e3c72;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover */
+.sidebar button:hover {
+  background-color: #ffd369;
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Active Button */
+.active-btn {
+  background-color: #ffd369 !important;
+  color: black !important;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Logout Button */
+.logout-btn {
+  margin-top: auto;
+  width: 90%;
+  background-color: #ff4d4d !important;
+  color: white !important;
+  font-weight: bold;
+  border-radius: 12px;
+}
+
+.logout-btn:hover {
+  background-color: #cc0000 !important;
+  transform: translateY(-3px);
+}
+
+/* ============================= */
+/* Main Content */
+/* ============================= */
+
+.main-content {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+  background: linear-gradient(to bottom right, #f4f6f9, #e9eef5);
+}
+
+/* Topbar */
+.topbar {
+  background-color: white;
+  padding: 18px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+/* Cards */
+.card {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Inputs */
+input,
+select,
+textarea {
+  padding: 10px;
+  width: 60%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* ============================= */
+/* Responsive */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 25px 15px;
+  }
+
+  .sidebar button {
+    width: 100%;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+  }
+}/* Card action buttons */
+.card button {
+  padding: 8px 14px;
+  margin-right: 10px;   /* space between buttons */
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* View File button */
+.card button:first-child {
+  background-color: #2a5298;
+  color: white;
+}
+
+.card button:first-child:hover {
+  background-color: #1e3c72;
+}
+
+/* Assign Reviewer button */
+.card button:last-child {
+  background-color: #28a745;
+  color: white;
+}
+
+.card button:last-child:hover {
+  background-color: #1e7e34;
+}
+/* Fade in animation */
+.main-content {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ============================= */
+/* Form / Action Buttons */
+/* ============================= */
+
+.main-content button {
+  display: inline-block;
+  padding: 10px 20px;
   border: none;
   border-radius: 8px;
+  background: linear-gradient(135deg, #2a5298, #1e3c72);
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
   cursor: pointer;
-  font-weight: bold;
   transition: all 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-.dashboard-box button:hover {
-  transform: scale(1.08);
-  background: #f2f2f2;
-}
-.dashboard {
-  text-align: center;
-  margin-top: 50px;
+/* Hover */
+.main-content button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.25);
 }
 
-.dashboard ul {
-  list-style: none;
-  padding: 0;
+/* Click effect */
+.main-content button:active {
+  transform: scale(0.96);
 }
+/* ============================= */
+/* Centered Hero Section */
+/* ============================= */
 
-.dashboard li {
-  margin: 10px 0;
-}
-.dashboard-wrapper {
+.hero {
+  height: 100vh;
+  background: linear-gradient(135deg, #5f2c82, #49a09d);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
   color: white;
 }
 
-.dashboard-card {
-  background: rgba(255, 255, 255, 0.15);
-  padding: 40px;
-  border-radius: 20px;
-  width: 400px;
-  text-align: center;
-  backdrop-filter: blur(10px);
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 15px;
+  font-weight: bold;
 }
 
-.dashboard-card button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  border-radius: 10px;
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+/* Login Button */
+.login-btn {
+  padding: 12px 28px;
+  border-radius: 8px;
   border: none;
-  background: white;
-  color: #6a11cb;
-  font-weight: bold;
+  background-color: #2563eb;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* Register Button */
+.register-btn {
+  padding: 12px 28px;
+  border-radius: 8px;
+  border: none;
+  background-color: #16a34a;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.register-btn:hover {
+  background-color: #15803d;
+}
+body {
+  margin: 0;
+}
+
+.dashboard-container,
+body,
+#root {
+  height: 100vh;
+}
+
+/* Force center everything */
+.center-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #5f2c82, #49a09d);
+  text-align: center;
+  color: white;
 }
