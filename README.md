@@ -1,16 +1,28 @@
-# React + Vite
+# Peer Review & Collaboration Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Project Overview
+The Peer Review & Collaboration Platform is a full-stack web application designed to enhance collaborative learning among students. It allows students to submit projects, review peers’ work, and provide structured feedback through ratings and comments. The Admin (Teacher) can create assignments, assign reviewers, monitor submissions, and track collaboration progress.
 
-Currently, two official plugins are available:
+## 🚀 Features
+- Role-based Login (Admin & Student)
+- Assignment Creation
+- Project Submission
+- Peer Review & Rating System
+- Reviewer Assignment
+- Collaboration Tracking
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Technologies Used
+- React (Vite)
+- Spring Boot
+- MySQL
+- Git & GitHub
 
-## React Compiler
+## 📂 Project Structure
+Frontend → React  
+Backend → Spring Boot  
+Database → MySQL  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 👥 Team Members
+- Katuri Karthik (2400031898)
+- Ramcharan gadde (2400030399)
+- Gowtham nodagala (2400080181)
